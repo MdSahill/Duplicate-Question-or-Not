@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duplicate Question Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Duplicate Question Detection</h1>
+        <form action="/predict" method="post">
+            <label for="question1">Question 1:</label><br>
+            <input type="text" id="question1" name="question1" required><br><br>
+            
+            <label for="question2">Question 2:</label><br>
+            <input type="text" id="question2" name="question2" required><br><br>
+            
+            <input type="submit" value="Check Duplicate">
+        </form>
+
+        {% if prediction_text %}
+            <h2>{{ prediction_text }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
